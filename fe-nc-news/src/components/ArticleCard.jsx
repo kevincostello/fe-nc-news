@@ -1,11 +1,15 @@
 import React from "react";
+import { Link } from "@reach/router";
 
-export default function ArticleCard({ title, topic }) {
+export default function ArticleCard({ title, topic, article_id }) {
   console.log("article is", title);
   return (
     <li>
-      <h2>Article: {title}</h2>
-      <h3>Topic: {topic}</h3>
+      <Link to={`/articles/${article_id}`}>
+        <h2>{title}</h2>
+      </Link>
+
+      {/* <h3>Topic: {topic}</h3> */}
     </li>
   );
 }
