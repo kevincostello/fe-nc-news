@@ -1,17 +1,16 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
 import ArticleList from "./components/ArticleList";
+import { Router } from "@reach/router";
+import Home from "./components/Home";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Nav />
-      <ArticleList />
-      <Footer />
+      <Router>
+        <Home path="/" />
+        <ArticleList path="/articles" />
+      </Router>
     </div>
   );
 }
