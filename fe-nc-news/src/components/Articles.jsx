@@ -29,6 +29,7 @@ class Articles extends Component {
   };
 
   render() {
+    console.log("rendering");
     return (
       <ul>
         <ArticleList articles={this.state.articles} />
@@ -36,17 +37,20 @@ class Articles extends Component {
     );
   }
 
-  // componentDidMount() {
-  //   this.getArticles();
-  // }
+  componentDidMount() {
+    console.log("mounted", this.state);
+    const articles = this.getArticles().then(data => data);
+    console.log("The articles to be mounted are", articles);
+  }
 
-  // getArticles = () => {
-  //   axios
-  //     .get("https://heroku-my-data.herokuapp.com/api/articles")
-  //     .then(response => {
-  //       return response.data.articles;
-  //     });
-  // };
+  getArticles = () => {
+    return axios
+      .get("https://heroku-my-data.herokuapp.com/api/articles")
+      .then(response => {
+        console.log("repsonse from api is:", response.data.articles);
+        return response.data.articles;
+      });
+  };
 }
 
 export default Articles;
