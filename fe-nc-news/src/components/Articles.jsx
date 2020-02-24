@@ -37,12 +37,6 @@ class Articles extends Component {
     );
   }
 
-  componentDidMount() {
-    console.log("mounted", this.state);
-    const articles = this.getArticles().then(data => data);
-    console.log("The articles to be mounted are", articles);
-  }
-
   getArticles = () => {
     return axios
       .get("https://heroku-my-data.herokuapp.com/api/articles")
@@ -51,6 +45,12 @@ class Articles extends Component {
         return response.data.articles;
       });
   };
+
+  componentDidMount() {
+    return this.getArticles().then(articles => {
+      this.setState({ articles });
+    });
+  }
 }
 
 export default Articles;
