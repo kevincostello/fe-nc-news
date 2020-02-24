@@ -1,15 +1,15 @@
 import React from "react";
 import "./App.css";
-import ArticleList from "./components/ArticleList";
 import { Router } from "@reach/router";
 import Home from "./components/Home";
+import Articles from "./components/Articles";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Home path="/" />
-        <ArticleList path="/articles" />
+        <Articles path="/articles" />
       </Router>
     </div>
   );

@@ -2,14 +2,14 @@ import React from "react";
 import Header from "./Header";
 import Nav from "./Nav";
 import Footer from "./Footer";
-import ArticleList from "./ArticleList";
+import Articles from "./Articles";
 
 function Home() {
   return (
     <main>
       <Header />
       <Nav />
-      <ArticleList />
+      <Articles />
       <Footer />
     </main>
   );
