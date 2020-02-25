@@ -2,7 +2,6 @@ import React from "react";
 import ArticleCard from "./ArticleCard";
 
 function ArticleList(props) {
-  console.log("the rprops are: ", props);
   return (
     <>
       {props.articles.map(article => {

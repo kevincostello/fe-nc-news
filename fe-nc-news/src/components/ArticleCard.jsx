@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "@reach/router";
 
 export default function ArticleCard({ title, topic, article_id }) {
-  console.log("article is", title);
   return (
     <li>
       <Link to={`/articles/${article_id}`}>

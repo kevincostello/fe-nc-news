@@ -12,9 +12,6 @@ function Nav() {
         <button>Football</button>
         <button>Coding</button>
         <button>Cooking</button>
-        <Link to="/articles">
-          <button>Articles</button>
-        </Link>
       </form>
     </nav>
   );

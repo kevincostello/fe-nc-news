@@ -39,14 +39,14 @@ class Articles extends Component {
 
   getArticles = () => {
     return axios
-      .get("https://heroku-my-data.herokuapp.com  /api/articles")
+      .get("https://heroku-my-data.herokuapp.com/api/articles")
       .then(response => {
-        console.log("repsonse from api is:", response.data.articles);
         return response.data.articles;
       });
   };
 
   componentDidMount() {
+    console.log("mounting");
     return this.getArticles().then(articles => {
       this.setState({ articles });
     });
