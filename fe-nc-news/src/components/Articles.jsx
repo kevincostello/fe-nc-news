@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ArticleList from "./ArticleList";
-import axios from "axios";
+import * as api from "../api";
 
 class Articles extends Component {
   state = {
@@ -49,19 +49,6 @@ class Articles extends Component {
     );
   }
 
-  getArticles = query => {
-    const { sort_by, order } = query;
-    console.log(sort_by, order);
-    return axios
-      .get("https://heroku-my-data.herokuapp.com/api/articles", {
-        params: { sort_by, order }
-      })
-      .then(response => {
-        console.log("in here", response.data.articles);
-        return response.data.articles;
-      });
-  };
-
   sortBy = event => {
     console.log("sorted", event.target.name);
     let query = {};
@@ -73,7 +60,7 @@ class Articles extends Component {
       query.order = "desc";
     }
 
-    return this.getArticles(query).then(articles => {
+    return api.getArticles(query).then(articles => {
       this.setState(currentState => {
         return { articles, isSorted: !currentState.isSorted };
       });
@@ -82,7 +69,7 @@ class Articles extends Component {
 
   componentDidMount() {
     console.log("mounting");
-    return this.getArticles({}).then(articles => {
+    return api.getArticles({}).then(articles => {
       this.setState({ articles });
     });
   }
