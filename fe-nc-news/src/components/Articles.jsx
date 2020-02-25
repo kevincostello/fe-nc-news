@@ -31,18 +31,32 @@ class Articles extends Component {
   render() {
     console.log("rendering");
     return (
-      <ul>
-        <ArticleList articles={this.state.articles} />
-      </ul>
+      <>
+        <button onClick={this.sortBy}>Sort Articles by: Date created</button>
+        <ul>
+          <ArticleList articles={this.state.articles} />
+        </ul>
+      </>
     );
   }
 
-  getArticles = () => {
+  getArticles = (sort_by, order) => {
+    console.log(sort_by, order);
     return axios
-      .get("https://heroku-my-data.herokuapp.com/api/articles")
+      .get("https://heroku-my-data.herokuapp.com/api/articles", {
+        params: { sort_by, order }
+      })
       .then(response => {
+        console.log("in here", response.data.articles);
         return response.data.articles;
       });
+  };
+
+  sortBy = event => {
+    console.log("sorted");
+    return this.getArticles("created_at", "asc").then(articles => {
+      this.setState({ articles });
+    });
   };
 
   componentDidMount() {

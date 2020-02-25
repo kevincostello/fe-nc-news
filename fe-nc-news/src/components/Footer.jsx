@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <footer>
-      <h2>There will be some text in here</h2>
+      <h2>&copy; !Northcoders 2020</h2>
     </footer>
   );
 }
