@@ -11,7 +11,7 @@ export default function ArticleCard({
   votes
 }) {
   return (
-    <li>
+    <li class="flex-item">
       <Link to={`/articles/${article_id}`}>
         <h2>Article ID: {article_id}</h2>
         <h2>{title}</h2>

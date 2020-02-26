@@ -22,7 +22,7 @@ class ArticlesByTopic extends React.Component {
 
         <h2>Topic: {this.props.topic}</h2>
 
-        <ul>
+        <ul class="flex-container">
           <ArticleList articles={this.state.articles} />
         </ul>
       </main>

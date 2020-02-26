@@ -3,7 +3,7 @@ import northc from "../components/not-northcoders.jpg";
 
 function Header() {
   return (
-    <header>
+    <header className="Header">
       <h1>!NC news (It's the truth.....honest!)</h1>
       <img src={northc} alt="icon"></img>
     </header>

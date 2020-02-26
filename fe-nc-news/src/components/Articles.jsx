@@ -42,7 +42,7 @@ class Articles extends Component {
         <button onClick={this.callSortFunc} name="votes">
           Sort Articles by: Votes
         </button>
-        <ul>
+        <ul class="flex-container">
           <ArticleList articles={this.state.articles} />
         </ul>
       </>
