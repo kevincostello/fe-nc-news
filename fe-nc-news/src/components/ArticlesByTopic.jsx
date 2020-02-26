@@ -20,9 +20,9 @@ class ArticlesByTopic extends React.Component {
           Sort Articles by: Votes
         </button>
 
-        <h2>Topic: {this.props.topic}</h2>
+        <h2 className="Topic">Topic: {this.props.topic}</h2>
 
-        <ul class="flex-container">
+        <ul className="flex-container">
           <ArticleList articles={this.state.articles} />
         </ul>
       </main>

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: goldenrod;
+  font-family: "Courier New", Courier, monospace;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -44,7 +45,7 @@
 }
 
 .flex-item {
-  background: tomato;
+  background: rgb(44, 168, 168);
   padding: 5px;
   width: 200px;
   margin-top: 10px;
@@ -55,15 +56,13 @@
 }
 
 button {
-  background-color: orchid;
-  color: brown;
-  font-weight: bold;
-  font-family: cursive;
+  background-color: grey;
+  color: purple;
   font-size: 20px;
 }
 
 .Header {
-  background-color: crimson;
+  background-color: purple;
   padding: 20px;
   margin: 30px;
   border: 20px;
@@ -71,4 +70,12 @@ button {
   border-width: 10px;
   border-style: ridge;
   overflow-wrap: break-word;
+}
+
+.Topic {
+  background: rgb(44, 168, 168);
+  border: 20px;
+  border-color: lightslategray;
+  border-width: 10px;
+  border-style: ridge;
 }
