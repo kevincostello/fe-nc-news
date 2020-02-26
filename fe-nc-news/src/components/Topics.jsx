@@ -29,7 +29,7 @@ class Topics extends React.Component {
   }
 
   callSortFunc = event => {
-    const query = api.sortBy(event, this.state.isSorted, "football");
+    const query = api.sortBy(event, this.state.isSorted, this.props.topic);
     return api.getArticles(query).then(articles => {
       this.setState(currentState => {
         return { articles, isSorted: !currentState.isSorted };
@@ -39,10 +39,22 @@ class Topics extends React.Component {
 
   componentDidMount() {
     console.log("mounting");
-    let query = { topic: "football" };
+    let query = { topic: this.props.topic };
+    // let query = { topic: "football" };
     return api.getArticles(query).then(articles => {
       this.setState({ articles });
     });
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log("updating", this.props, prevProps);
+    if (this.props.topic !== prevProps.topic) {
+      let query = { topic: this.props.topic };
+      // let query = { topic: "football" };
+      return api.getArticles(query).then(articles => {
+        this.setState({ articles });
+      });
+    }
   }
 }
 

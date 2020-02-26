@@ -8,6 +8,7 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Topics from "./components/Topics";
+import ArticlesByTopic from "./components/ArticlesByTopic";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Home path="/" />
         <Articles path="/articles" />
         <ArticleById path="/articles/:article_id" />
-        <Topics path="/topics/:topic" />
+        <Topics path="/articles/topics/:topic" />
       </Router>
       <Footer />
     </div>

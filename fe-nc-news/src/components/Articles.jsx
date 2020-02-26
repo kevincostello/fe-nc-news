@@ -30,7 +30,7 @@ class Articles extends Component {
   };
 
   render() {
-    console.log("rendering");
+    console.log("rendering: articles");
     return (
       <>
         <button onClick={this.callSortFunc} name="created_at">

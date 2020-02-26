@@ -11,17 +11,24 @@ function Nav() {
         </Link>
         <button>About</button>
 
-        <Link to="/football">
+        <Link to="/articles/topics/football">
+          <button name="football">Football</button>
+        </Link>
+        {/* <Link to="/articles?topic=football">
+          <button name="football">Football</button>
+        </Link> */}
+
+        {/* <Link to="/football">
           <button onClick={api.clicker} name="football">
             Football
           </button>
-        </Link>
+        </Link> */}
 
-        <Link to="/coding" name="coding">
+        <Link to="/articles/topics/coding" name="coding">
           <button>Coding</button>
         </Link>
 
-        <Link to="/cooking" name="cooking">
+        <Link to="/articles/topics/cooking" name="cooking">
           <button>Cooking</button>
         </Link>
       </form>
