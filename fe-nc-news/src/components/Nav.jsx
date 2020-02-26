@@ -9,7 +9,10 @@ function Nav() {
           <button>Home</button>
         </Link>
         <button>About</button>
-        <button>Football</button>
+
+        <Link to="/topics">
+          <button>Football</button>
+        </Link>
         <button>Coding</button>
         <button>Cooking</button>
       </form>
