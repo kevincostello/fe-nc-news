@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "@reach/router";
 
 class ArticleById extends Component {
   state = {
@@ -24,9 +25,11 @@ class ArticleById extends Component {
           Title: {title}, Author: {author}
         </h2>
         <p>{body}</p>
-        <h3>
-          Votes: {votes} Comments: {comment_count}
-        </h3>
+
+        <h3>Votes: {votes}</h3>
+        <Link to={`/articles/${article_id}/comments`}>
+          <h3>Comments: {comment_count}</h3>
+        </Link>
         <h4>Created_at: {created_at}</h4>
       </main>
     );

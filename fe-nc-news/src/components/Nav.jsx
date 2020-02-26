@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "@reach/router";
-import * as api from "../api";
 
 function Nav() {
   return (

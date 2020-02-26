@@ -2,13 +2,11 @@ import axios from "axios";
 
 export const getArticles = query => {
   const { sort_by, order, topic } = query;
-  console.log(sort_by, order, topic);
   return axios
     .get("https://heroku-my-data.herokuapp.com/api/articles", {
       params: { sort_by, order, topic }
     })
     .then(response => {
-      console.log("in here", response.data.articles);
       return response.data.articles;
     });
 };
