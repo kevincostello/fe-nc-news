@@ -13,17 +13,16 @@ class CommentsByArticleId extends React.Component {
           <h2>Article id: {this.props.article_id}</h2>
           {this.state.comments.map(comment => {
             const { comment_id, author, body, votes, created_at } = comment;
+            console.log("comment_id: ", comment_id);
             return (
-              <>
-                <li key={comment_id}>
-                  <h3>
-                    Comment id: {comment_id} Author: {author} Created at:{" "}
-                    {created_at}
-                  </h3>
-                  <p> {body}</p>
-                  <h4>Votes: {votes}</h4>
-                </li>
-              </>
+              <li key={comment_id}>
+                <h3>
+                  Comment id: {comment_id} Author: {author} Created at:
+                  {created_at}
+                </h3>
+                <p> {body}</p>
+                <h4>Votes: {votes}</h4>
+              </li>
             );
           })}
         </ul>
