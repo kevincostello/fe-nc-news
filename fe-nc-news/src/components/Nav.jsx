@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
+import * as api from "../api";
 
 function Nav() {
   return (
@@ -10,17 +11,19 @@ function Nav() {
         </Link>
         <button>About</button>
 
-        <Link to="/topics">
-          <button>Football</button>
+        <Link to="/football">
+          <button onClick={api.clicker} name="football">
+            Football
+          </button>
         </Link>
 
-        {/* <Link>
+        <Link to="/coding" name="coding">
           <button>Coding</button>
         </Link>
 
-        <Link>
+        <Link to="/cooking" name="cooking">
           <button>Cooking</button>
-        </Link> */}
+        </Link>
       </form>
     </nav>
   );

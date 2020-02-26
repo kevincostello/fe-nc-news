@@ -18,7 +18,7 @@ function App() {
         <Home path="/" />
         <Articles path="/articles" />
         <ArticleById path="/articles/:article_id" />
-        <Topics path="/topics" />
+        <Topics path="/topics/:topic" />
       </Router>
       <Footer />
     </div>

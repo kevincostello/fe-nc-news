@@ -8,7 +8,7 @@ class Topics extends React.Component {
     isSorted: false
   };
   render() {
-    console.log("rendering");
+    console.log("topics: ", this.props);
     return (
       <main>
         <button onClick={this.callSortFunc} name="created_at">

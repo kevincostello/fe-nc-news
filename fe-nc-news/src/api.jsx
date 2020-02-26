@@ -30,3 +30,9 @@ export const sortBy = (event, sortFlag, topic) => {
   }
   return query;
 };
+
+export const clicker = event => {
+  console.log("event is:", event.target.name);
+  // event.preventDefault();
+  return event.target.name;
+};

@@ -42,15 +42,6 @@ class Articles extends Component {
         <button onClick={this.callSortFunc} name="votes">
           Sort Articles by: Votes
         </button>
-        {/* <button onClick={this.sortBy} name="created_at">
-          Sort Articles by: Date created
-        </button>
-        <button onClick={this.sortBy} name="comment_count">
-          Sort Articles by: Comment count
-        </button>
-        <button onClick={this.sortBy} name="votes">
-          Sort Articles by: Votes
-        </button> */}
         <ul>
           <ArticleList articles={this.state.articles} />
         </ul>
@@ -61,7 +52,6 @@ class Articles extends Component {
   callSortFunc = event => {
     const query = api.sortBy(event, this.state.isSorted);
     return api.getArticles(query).then(articles => {
-      console.log("the articles are:", articles);
       this.setState(currentState => {
         return { articles, isSorted: !currentState.isSorted };
       });
