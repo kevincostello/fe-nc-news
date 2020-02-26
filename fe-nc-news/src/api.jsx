@@ -5,16 +5,11 @@ export const getArticles = query => {
   console.log(sort_by, order, topic);
   return axios
     .get("https://heroku-my-data.herokuapp.com/api/articles", {
-      params: { sort_by, order }
+      params: { sort_by, order, topic }
     })
     .then(response => {
       console.log("in here", response.data.articles);
-      if (topic) {
-        const filteredResponse = response.data.articles.filter(
-          article => article.topic === topic
-        );
-        return filteredResponse;
-      } else return response.data.articles;
+      return response.data.articles;
     });
 };
 

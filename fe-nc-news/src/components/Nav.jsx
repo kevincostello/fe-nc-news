@@ -14,15 +14,6 @@ function Nav() {
         <Link to="/articles/topics/football">
           <button name="football">Football</button>
         </Link>
-        {/* <Link to="/articles?topic=football">
-          <button name="football">Football</button>
-        </Link> */}
-
-        {/* <Link to="/football">
-          <button onClick={api.clicker} name="football">
-            Football
-          </button>
-        </Link> */}
 
         <Link to="/articles/topics/coding" name="coding">
           <button>Coding</button>

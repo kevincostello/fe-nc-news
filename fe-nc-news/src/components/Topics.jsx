@@ -21,6 +21,8 @@ class Topics extends React.Component {
           Sort Articles by: Votes
         </button>
 
+        <h2>Topic: {this.props.topic}</h2>
+
         <ul>
           <ArticleList articles={this.state.articles} />
         </ul>
