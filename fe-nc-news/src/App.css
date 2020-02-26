@@ -70,4 +70,5 @@ button {
   border-color: lightslategray;
   border-width: 10px;
   border-style: ridge;
+  overflow-wrap: break-word;
 }
