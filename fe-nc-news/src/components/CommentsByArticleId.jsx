@@ -1,24 +1,55 @@
 import React from "react";
 import axios from "axios";
 
-function CommentsByArticleId(props) {
-  console.log("are we in here?", props);
-  return (
-    <main>
-      <ul>
-        {axios
-          .get(
-            `https://heroku-my-data.herokuapp.com/api/articles/${props.article_id}/comments`
-          )
-          .then(response => {
-            // console.log("the comments are:", response.data);
-          })
-          .catch(err =>
-            console.log("the error in comments by article id is: ", err)
-          )}
-      </ul>
-    </main>
-  );
+class CommentsByArticleId extends React.Component {
+  state = {
+    comments: []
+  };
+  render() {
+    console.log("are we in here?", this.props);
+    return (
+      <main>
+        <ul>
+          <h2>Article id: {this.props.article_id}</h2>
+          {this.state.comments.map(comment => {
+            const { comment_id, author, body, votes, created_at } = comment;
+            return (
+              <>
+                <li key={comment_id}>
+                  <h3>
+                    Comment id: {comment_id} Author: {author} Created at:{" "}
+                    {created_at}
+                  </h3>
+                  <p> {body}</p>
+                  <h4>Votes: {votes}</h4>
+                </li>
+              </>
+            );
+          })}
+        </ul>
+      </main>
+    );
+  }
+  getComments = () => {
+    return axios
+      .get(
+        `https://heroku-my-data.herokuapp.com/api/articles/${this.props.article_id}/comments`
+      )
+      .then(response => {
+        console.log("the comments are:", response.data);
+        return response.data.comments;
+      })
+      .catch(err =>
+        console.log("the error in comments by article id is: ", err)
+      );
+  };
+
+  componentDidMount() {
+    return this.getComments().then(comments => {
+      console.log("comment: ", comments);
+      this.setState({ comments });
+    });
+  }
 }
 
 export default CommentsByArticleId;
