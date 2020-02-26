@@ -11,22 +11,25 @@ class Topics extends React.Component {
     console.log("rendering");
     return (
       <main>
-        <ArticleList articles={this.state.articles} />
+        <button onClick={this.callSortFunc} name="created_at">
+          Sort Articles by: Date created
+        </button>
+        <button onClick={this.callSortFunc} name="comment_count">
+          Sort Articles by: Comment count
+        </button>
+        <button onClick={this.callSortFunc} name="votes">
+          Sort Articles by: Votes
+        </button>
+
+        <ul>
+          <ArticleList articles={this.state.articles} />
+        </ul>
       </main>
     );
   }
 
-  sortBy = event => {
-    console.log("sorted", event.target.name);
-    let query = { topic: "football" };
-    if (this.state.isSorted === false) {
-      query.sort_by = event.target.name;
-      query.order = "asc";
-    } else {
-      query.sort_by = event.target.name;
-      query.order = "desc";
-    }
-
+  callSortFunc = event => {
+    const query = api.sortBy(event, this.state.isSorted, "football");
     return api.getArticles(query).then(articles => {
       this.setState(currentState => {
         return { articles, isSorted: !currentState.isSorted };

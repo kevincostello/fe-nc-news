@@ -33,7 +33,16 @@ class Articles extends Component {
     console.log("rendering");
     return (
       <>
-        <button onClick={this.sortBy} name="created_at">
+        <button onClick={this.callSortFunc} name="created_at">
+          Sort Articles by: Date created
+        </button>
+        <button onClick={this.callSortFunc} name="comment_count">
+          Sort Articles by: Comment count
+        </button>
+        <button onClick={this.callSortFunc} name="votes">
+          Sort Articles by: Votes
+        </button>
+        {/* <button onClick={this.sortBy} name="created_at">
           Sort Articles by: Date created
         </button>
         <button onClick={this.sortBy} name="comment_count">
@@ -41,7 +50,7 @@ class Articles extends Component {
         </button>
         <button onClick={this.sortBy} name="votes">
           Sort Articles by: Votes
-        </button>
+        </button> */}
         <ul>
           <ArticleList articles={this.state.articles} />
         </ul>
@@ -49,18 +58,10 @@ class Articles extends Component {
     );
   }
 
-  sortBy = event => {
-    console.log("sorted", event.target.name);
-    let query = {};
-    if (this.state.isSorted === false) {
-      query.sort_by = event.target.name;
-      query.order = "asc";
-    } else {
-      query.sort_by = event.target.name;
-      query.order = "desc";
-    }
-
+  callSortFunc = event => {
+    const query = api.sortBy(event, this.state.isSorted);
     return api.getArticles(query).then(articles => {
+      console.log("the articles are:", articles);
       this.setState(currentState => {
         return { articles, isSorted: !currentState.isSorted };
       });

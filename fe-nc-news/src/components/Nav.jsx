@@ -13,8 +13,14 @@ function Nav() {
         <Link to="/topics">
           <button>Football</button>
         </Link>
-        <button>Coding</button>
-        <button>Cooking</button>
+
+        {/* <Link>
+          <button>Coding</button>
+        </Link>
+
+        <Link>
+          <button>Cooking</button>
+        </Link> */}
       </form>
     </nav>
   );
