@@ -2,6 +2,9 @@
   text-align: center;
   background-color: goldenrod;
   font-family: "Courier New", Courier, monospace;
+  border-color: lightslategray;
+  border-width: 10px;
+  border-style: ridge;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -39,8 +42,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
   border-color: lightslategray;
+  border-width: 10px;
   border-style: ridge;
 }
 
@@ -51,7 +54,6 @@
   margin-top: 10px;
   font-weight: bold;
   font-size: 0.8em;
-  text-align: center;
   list-style-type: none;
 }
 
