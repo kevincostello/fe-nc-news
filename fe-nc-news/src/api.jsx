@@ -29,3 +29,19 @@ export const clicker = event => {
   event.preventDefault();
   return event.target.name;
 };
+
+export const postComment = query => {
+  const { username, body } = query;
+  return axios
+    .post("https://heroku-my-data.herokuapp.com/api/articles/33/comments", {
+      params: { username, body }
+    })
+    .then(response => {
+      console.log("the posted comment is: ", response.data.comment);
+      return response.data.comment;
+    });
+};
+
+export const fetchUser = username => {
+  return axios.get;
+};

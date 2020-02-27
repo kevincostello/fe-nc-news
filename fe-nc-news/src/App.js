@@ -8,8 +8,8 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ArticlesByTopic from "./components/ArticlesByTopic";
-import CommentsByArticleId from "./components/CommentsByArticleId";
 import About from "./components/About";
+import Comments from "./components/Comments";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <Articles path="/articles" />
         <ArticleById path="/articles/:article_id" />
         <ArticlesByTopic path="/articles/topics/:topic" />
-        <CommentsByArticleId path="/articles/:article_id/comments" />
+        <Comments path="/articles/:article_id/comments" />
       </Router>
       <Footer />
     </div>

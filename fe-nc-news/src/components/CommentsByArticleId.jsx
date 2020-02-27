@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import * as api from "../api";
 
 class CommentsByArticleId extends React.Component {
   state = {
@@ -9,13 +10,13 @@ class CommentsByArticleId extends React.Component {
     console.log("are we in here?", this.props);
     return (
       <main>
-        <ul>
+        <ul className="flex-container">
           <h2>Article id: {this.props.article_id}</h2>
           {this.state.comments.map(comment => {
             const { comment_id, author, body, votes, created_at } = comment;
             console.log("comment_id: ", comment_id);
             return (
-              <li key={comment_id}>
+              <li key={comment_id} className="flex-item">
                 <h3>
                   Author: {author} Created at:
                   {created_at}
