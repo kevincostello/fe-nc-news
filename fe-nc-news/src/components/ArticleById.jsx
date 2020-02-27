@@ -31,6 +31,12 @@ class ArticleById extends Component {
           <h3>Comments: {comment_count}</h3>
         </Link>
         <h4>Created_at: {created_at}</h4>
+        <button onClick={this.clicker} value={1}>
+          ⬆ Vote for me please!
+        </button>
+        <button onClick={this.clicker} value={-1}>
+          ⬇ I am unhappy now :(
+        </button>
       </main>
     );
   }
@@ -52,6 +58,11 @@ class ArticleById extends Component {
       this.setState({ article });
     });
   }
+
+  clicker = event => {
+    event.preventDefault();
+    console.log(event.target.value);
+  };
 }
 
 export default ArticleById;
