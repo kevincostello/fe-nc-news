@@ -43,7 +43,7 @@ class Articles extends Component {
           Sort Articles by: Votes
         </button>
         <ul class="flex-container">
-          <ArticleList articles={this.state.articles} />
+          <ArticleList articles={this.state.articles} clicker={this.clicker} />
         </ul>
       </>
     );
@@ -64,6 +64,11 @@ class Articles extends Component {
       this.setState({ articles });
     });
   }
+
+  clicker = event => {
+    event.preventDefault();
+    console.log(event.target.value);
+  };
 }
 
 export default Articles;

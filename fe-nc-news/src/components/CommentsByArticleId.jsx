@@ -17,7 +17,7 @@ class CommentsByArticleId extends React.Component {
             return (
               <li key={comment_id}>
                 <h3>
-                  Comment id: {comment_id} Author: {author} Created at:
+                  Author: {author} Created at:
                   {created_at}
                 </h3>
                 <p> {body}</p>

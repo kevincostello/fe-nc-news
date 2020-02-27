@@ -25,7 +25,7 @@ export const sortBy = (event, sortFlag, topic) => {
 };
 
 export const clicker = event => {
-  console.log("event is:", event.target.name);
-  // event.preventDefault();
+  console.log("event is:", event.target.value);
+  event.preventDefault();
   return event.target.name;
 };

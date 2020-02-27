@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ArticlesByTopic from "./components/ArticlesByTopic";
 import CommentsByArticleId from "./components/CommentsByArticleId";
+import About from "./components/About";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Nav />
       <Router>
         <Home path="/" />
+        <About path="/about" />
         <Articles path="/articles" />
         <ArticleById path="/articles/:article_id" />
         <ArticlesByTopic path="/articles/topics/:topic" />

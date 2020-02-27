@@ -8,7 +8,9 @@ function Nav() {
         <Link to="/">
           <button>Home</button>
         </Link>
-        <button>About</button>
+        <Link to="/about">
+          <button>About</button>
+        </Link>
 
         <Link to="/articles/topics/football">
           <button name="football">Football</button>
