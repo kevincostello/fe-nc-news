@@ -4,15 +4,20 @@ import * as api from "../api";
 export class Voter extends Component {
   state = {
     votedif: 0,
-    disabled: false
+    disabled: false,
+    total: 0
   };
   render() {
-    console.log("Please tell me there are some props: ", this.props);
+    console.log(
+      "Please tell me there are some props: ",
+      this.props,
+      this.state.total
+    );
     return (
       !this.state.disabled && (
         <>
           <button
-            onClick={this.clicker}
+            onClick={event => this.clicker(4, event)}
             value={1}
             disabled={this.state.disabled}
           >
@@ -20,7 +25,7 @@ export class Voter extends Component {
           </button>
           <h3>Votes: {this.props.votes + this.state.votedif}</h3>
           <button
-            onClick={this.clicker}
+            onClick={event => this.clicker(5, event)}
             value={-1}
             disabled={this.state.disabled}
           >
@@ -31,18 +36,36 @@ export class Voter extends Component {
     );
   }
 
-  clicker = event => {
+  clicker = (whichButton, event) => {
     const { value } = event.target;
     event.preventDefault();
-    console.log("Vlaue: ", Number(value));
-    api.patchArticle(Number(value), this.props.article_id).then(
-      this.setState({
-        // console.log("Vote difference", currentState.inc_votes + Number(value));
-
-        votedif: Number(value),
-        disabled: true
-      })
+    console.log(
+      "Vlaue: ",
+      Number(value),
+      "whichButton: ",
+      whichButton,
+      this.state.total
     );
+    this.setState(currentState => {
+      // console.log("Vote difference", currentState.inc_votes + Number(value));
+
+      console.log(
+        "Vlaue: ",
+        Number(value),
+        "whichButton: ",
+        whichButton,
+        currentState.total
+      );
+      return {
+        votedif: Number(value),
+        disabled: true,
+        total: currentState.total + whichButton
+      };
+    });
+
+    api.patchArticle(Number(value), this.props.article_id).then(() => {
+      console.log("successfully patched!");
+    });
   };
 }
 
