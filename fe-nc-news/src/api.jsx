@@ -30,6 +30,18 @@ export const clicker = event => {
   return event.target.name;
 };
 
+export const getComments = article_id => {
+  return axios
+    .get(
+      `https://heroku-my-data.herokuapp.com/api/articles/${article_id}/comments`
+    )
+    .then(response => {
+      console.log("the comments are:", response.data);
+      return response.data.comments;
+    })
+    .catch(err => console.log("the error in comments by article id is: ", err));
+};
+
 export const postComment = query => {
   const { username, body } = query;
   const params = { params: { username, body } };
@@ -56,4 +68,15 @@ export const postComment = query => {
 
 export const fetchUser = username => {
   return axios.get;
+};
+
+export const deleteComment = () => {
+  return axios
+    .delete("https://heroku-my-data.herokuapp.com/api/comments/303")
+    .then(response => {
+      console.log("deleted:", response);
+    })
+    .catch(err => {
+      console.log("error is:", err);
+    });
 };
