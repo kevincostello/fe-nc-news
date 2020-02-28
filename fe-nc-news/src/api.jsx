@@ -1,4 +1,5 @@
 import axios from "axios";
+import React from "react";
 
 export const getArticles = query => {
   const { sort_by, order, topic } = query;
@@ -105,4 +106,20 @@ export const patchArticle = (inc_votes, article_id) => {
     .catch(err => {
       console.log("error is:", err);
     });
+};
+
+export const showUp = clickerFunc => {
+  return (
+    <button onClick={clickerFunc} value={1}>
+      ⬆ Vote for me please!
+    </button>
+  );
+};
+
+export const showDown = clickerFunc => {
+  return (
+    <button onClick={clickerFunc} value={-1}>
+      ⬇ I am unhappy now :)
+    </button>
+  );
 };

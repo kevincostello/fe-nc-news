@@ -4,62 +4,37 @@ import * as api from "../api";
 export class Voter extends Component {
   state = {
     votedif: 0,
-    disabled: false,
-    total: 0
+    inc_votes: 0
   };
   render() {
-    console.log(
-      "Please tell me there are some props: ",
-      this.props,
-      this.state.total
-    );
-    return (
-      !this.state.disabled && (
+    return this.state.inc_votes === 0 ? (
+      <>
+        {api.showUp(this.clicker)}
+        <h3>Votes: {this.props.votes + this.state.inc_votes}</h3>
+        {api.showDown(this.clicker)}
+      </>
+    ) : this.state.inc_votes === 1 ? (
+      <>
+        <h3>Votes: {this.props.votes + this.state.inc_votes}</h3>
+        {api.showDown(this.clicker)}
+      </>
+    ) : (
+      this.state.inc_votes === -1 && (
         <>
-          <button
-            onClick={event => this.clicker(4, event)}
-            value={1}
-            disabled={this.state.disabled}
-          >
-            ⬆ Vote for me please!
-          </button>
-          <h3>Votes: {this.props.votes + this.state.votedif}</h3>
-          <button
-            onClick={event => this.clicker(5, event)}
-            value={-1}
-            disabled={this.state.disabled}
-          >
-            ⬇ I am unhappy now :
-          </button>
+          <h3>Votes: {this.props.votes + this.state.inc_votes}</h3>
+          {api.showUp(this.clicker)}
         </>
       )
     );
   }
 
-  clicker = (whichButton, event) => {
+  clicker = event => {
     const { value } = event.target;
     event.preventDefault();
-    console.log(
-      "Vlaue: ",
-      Number(value),
-      "whichButton: ",
-      whichButton,
-      this.state.total
-    );
     this.setState(currentState => {
-      // console.log("Vote difference", currentState.inc_votes + Number(value));
-
-      console.log(
-        "Vlaue: ",
-        Number(value),
-        "whichButton: ",
-        whichButton,
-        currentState.total
-      );
       return {
         votedif: Number(value),
-        disabled: true,
-        total: currentState.total + whichButton
+        inc_votes: currentState.inc_votes + Number(value)
       };
     });
 

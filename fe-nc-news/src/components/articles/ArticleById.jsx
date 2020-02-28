@@ -38,7 +38,7 @@ class ArticleById extends Component {
             <textarea
               name=""
               id=""
-              cols="40"
+              cols="30"
               rows="10"
               onChange={this.changeHandler}
             ></textarea>
