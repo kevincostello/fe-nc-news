@@ -66,10 +66,10 @@ class Articles extends Component {
     });
   }
 
-  clicker = event => {
-    event.preventDefault();
-    console.log(event.target.value);
-  };
+  // clicker = event => {
+  //   event.preventDefault();
+  //   console.log(event.target.value);
+  // };
 }
 
 export default Articles;

@@ -92,3 +92,17 @@ export const deleteComment = (comment_id, article_id) => {
       console.log("error is:", err);
     });
 };
+
+export const patchArticle = (inc_votes, article_id) => {
+  console.log("inc_votes", inc_votes, "article_id", article_id);
+  return axios
+    .patch(`https://heroku-my-data.herokuapp.com/api/articles/${article_id}`, {
+      inc_votes
+    })
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(err => {
+      console.log("error is:", err);
+    });
+};

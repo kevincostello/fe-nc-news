@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "@reach/router";
 import * as api from "../../api";
+import Voter from "../Voter";
 class ArticleById extends Component {
   state = {
     article: {},
@@ -46,12 +47,7 @@ class ArticleById extends Component {
           <button>Submit new comment</button>
         </form>
         <h4>Created_at: {created_at}</h4>
-        <button onClick={this.clicker} value={1}>
-          ⬆ Vote for me please!
-        </button>
-        <button onClick={this.clicker} value={-1}>
-          ⬇ I am unhappy now :(
-        </button>
+        <Voter votes={votes} article_id={article_id} />
       </main>
     );
   }
