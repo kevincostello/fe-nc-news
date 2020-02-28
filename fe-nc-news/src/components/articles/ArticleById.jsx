@@ -28,7 +28,6 @@ class ArticleById extends Component {
         </h2>
         <p>{body}</p>
 
-        <h3>Votes: {votes}</h3>
         <Link to={`/articles/${article_id}/comments`}>
           <h3>Comments: {comment_count}</h3>
         </Link>
