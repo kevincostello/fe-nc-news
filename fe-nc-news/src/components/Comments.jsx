@@ -25,6 +25,14 @@ export class Comments extends Component {
       this.setState({ comments });
     });
   }
+
+  componentDidUpdate(props, prevProps, prevState) {
+    console.log("updating", "props:", this.props, "prevProps:", prevProps);
+    // const { article_id } = this.props;
+    // return api.getComments(article_id).then(comments => {
+    //   this.setState({ comments });
+    // });
+  }
 }
 
 export default Comments;

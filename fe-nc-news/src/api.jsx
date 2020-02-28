@@ -42,7 +42,7 @@ export const getComments = article_id => {
     .catch(err => console.log("the error in comments by article id is: ", err));
 };
 
-export const postComment = query => {
+export const postComment = (query, article_id) => {
   const { username, body } = query;
   const params = { params: { username, body } };
   console.log(
@@ -56,10 +56,13 @@ export const postComment = query => {
     params
   );
   return axios
-    .post("https://heroku-my-data.herokuapp.com/api/articles/33/comments", {
-      username,
-      body
-    })
+    .post(
+      `https://heroku-my-data.herokuapp.com/api/articles/${article_id}/comments`,
+      {
+        username,
+        body
+      }
+    )
     .then(response => {
       console.log("the posted comment is: ", response.data.comment);
       return response.data.comment;
@@ -70,11 +73,20 @@ export const fetchUser = username => {
   return axios.get;
 };
 
-export const deleteComment = () => {
+export const deleteComment = (comment_id, article_id) => {
+  console.log(
+    "comment_id is: >>>>>>>>>>>>>>>>",
+    comment_id,
+    "artciel",
+    article_id
+  );
   return axios
-    .delete("https://heroku-my-data.herokuapp.com/api/comments/303")
+    .delete(`https://heroku-my-data.herokuapp.com/api/comments/${comment_id}`)
     .then(response => {
-      console.log("deleted:", response);
+      console.log("deleted: ", comment_id);
+      return getComments(article_id).then(comments => {
+        return { comments };
+      });
     })
     .catch(err => {
       console.log("error is:", err);

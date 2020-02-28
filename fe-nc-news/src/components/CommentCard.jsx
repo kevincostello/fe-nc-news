@@ -13,7 +13,11 @@ function CommentCard(
         <h3>{created_at}</h3>
         <h5>Votes: {votes}</h5>
       </li>
-      <button onClick={api.deleteComment}>Delete comment</button>
+      <button
+        onClick={event => api.deleteComment(comment_id, article_id, event)}
+      >
+        Delete comment
+      </button>
     </>
   );
 }

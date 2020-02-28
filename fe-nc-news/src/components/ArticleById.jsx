@@ -88,9 +88,11 @@ class ArticleById extends Component {
   addNewComment = event => {
     event.preventDefault();
     console.log(this.state.newComment);
-    return api.postComment(this.state.newComment).then(results => {
-      console.log(results);
-    });
+    return api
+      .postComment(this.state.newComment, this.state.article.article_id)
+      .then(results => {
+        console.log(results);
+      });
   };
 }
 
