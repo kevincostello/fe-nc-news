@@ -4,9 +4,11 @@ import * as api from "../api";
 export class Voter extends Component {
   state = {
     votedif: 0,
-    inc_votes: 0
+    inc_votes: 0,
+    username: ""
   };
   render() {
+    console.log("props in voter: ", this.props.func);
     return this.state.inc_votes === 0 ? (
       <>
         {api.showUp(this.clicker)}
@@ -34,12 +36,13 @@ export class Voter extends Component {
     this.setState(currentState => {
       return {
         votedif: Number(value),
-        inc_votes: currentState.inc_votes + Number(value)
+        inc_votes: currentState.inc_votes + Number(value),
+        username: this.props.username
       };
     });
 
-    api.patchArticle(Number(value), this.props.article_id).then(() => {
-      console.log("successfully patched!");
+    this.props.func(Number(value), this.props.idVote).then(result => {
+      console.log("successfully patched!", result);
     });
   };
 }

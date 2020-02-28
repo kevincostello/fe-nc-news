@@ -6,7 +6,8 @@ import Voter from "../Voter";
 class ArticleById extends Component {
   state = {
     article: {},
-    newComment: {}
+    newComment: {},
+    username: "jessjelly"
   };
   render() {
     const {
@@ -19,6 +20,7 @@ class ArticleById extends Component {
       author,
       created_at
     } = this.state.article;
+    const { username } = this.state;
     return (
       <main>
         <h1>Topic: {topic}</h1>
@@ -46,7 +48,12 @@ class ArticleById extends Component {
           <button>Submit new comment</button>
         </form>
         <h4>Created_at: {created_at}</h4>
-        <Voter votes={votes} article_id={article_id} />
+        <Voter
+          votes={votes}
+          idVote={article_id}
+          username={username}
+          func={api.patchArticle}
+        />
       </main>
     );
   }

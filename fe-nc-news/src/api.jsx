@@ -101,7 +101,21 @@ export const patchArticle = (inc_votes, article_id) => {
       inc_votes
     })
     .then(response => {
-      console.log(response.data);
+      return response.data;
+    })
+    .catch(err => {
+      console.log("error is:", err);
+    });
+};
+
+export const patchComment = (inc_votes, comment_id) => {
+  console.log("inc_votes", inc_votes, "commenyt_id", comment_id);
+  return axios
+    .patch(`https://heroku-my-data.herokuapp.com/api/comments/${comment_id}`, {
+      inc_votes
+    })
+    .then(response => {
+      return response.data;
     })
     .catch(err => {
       console.log("error is:", err);
