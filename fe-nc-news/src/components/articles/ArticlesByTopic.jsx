@@ -1,6 +1,6 @@
 import React from "react";
 import ArticleList from "./ArticleList";
-import * as api from "../api";
+import * as api from "../../api";
 
 class ArticlesByTopic extends React.Component {
   state = {

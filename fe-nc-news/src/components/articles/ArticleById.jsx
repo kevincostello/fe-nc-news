@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "@reach/router";
-import * as api from "../api";
+import * as api from "../../api";
 class ArticleById extends Component {
   state = {
     article: {},

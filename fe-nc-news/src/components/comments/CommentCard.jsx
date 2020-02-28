@@ -1,5 +1,5 @@
 import React from "react";
-import * as api from "../api";
+import * as api from "../../api";
 function CommentCard(
   { author, body, created_at, votes, article_id, comment_id },
   props

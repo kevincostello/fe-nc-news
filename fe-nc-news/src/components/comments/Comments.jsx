@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CommentList from "./CommentList";
-import * as api from "../api";
+import * as api from "../../api";
 import axios from "axios";
 
 export class Comments extends Component {

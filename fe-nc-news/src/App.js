@@ -2,14 +2,14 @@ import React from "react";
 import "./App.css";
 import { Router } from "@reach/router";
 import Home from "./components/Home";
-import Articles from "./components/Articles";
-import ArticleById from "./components/ArticleById";
+import Articles from "./components/articles/Articles";
+import ArticleById from "./components/articles/ArticleById";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ArticlesByTopic from "./components/ArticlesByTopic";
+import ArticlesByTopic from "./components/articles/ArticlesByTopic";
 import About from "./components/About";
-import Comments from "./components/Comments";
+import Comments from "./components/comments/Comments";
 
 function App() {
   return (

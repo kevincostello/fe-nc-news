@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import * as api from "../api";
+import * as api from "../../api";
 
 class CommentsByArticleId extends React.Component {
   state = {
