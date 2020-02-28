@@ -1,6 +1,9 @@
 import React from "react";
 
-function CommentCard({ author, body, created_at, votes }, props) {
+function CommentCard(
+  { author, body, created_at, votes, article_id, comment_id },
+  props
+) {
   return (
     <li className="flex-item">
       <h2>{author}</h2>

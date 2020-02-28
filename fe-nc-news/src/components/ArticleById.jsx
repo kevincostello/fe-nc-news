@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "@reach/router";
-
+import * as api from "../api";
 class ArticleById extends Component {
   state = {
-    article: {}
+    article: {},
+    newComment: {}
   };
   render() {
     const {
@@ -30,6 +31,20 @@ class ArticleById extends Component {
         <Link to={`/articles/${article_id}/comments`}>
           <h3>Comments: {comment_count}</h3>
         </Link>
+
+        <form action="" className="form" onSubmit={this.addNewComment}>
+          <label htmlFor="">
+            Add new comment
+            <textarea
+              name=""
+              id=""
+              cols="40"
+              rows="10"
+              onChange={this.changeHandler}
+            ></textarea>
+          </label>
+          <button>Submit new comment</button>
+        </form>
         <h4>Created_at: {created_at}</h4>
         <button onClick={this.clicker} value={1}>
           ⬆ Vote for me please!
@@ -62,6 +77,20 @@ class ArticleById extends Component {
   clicker = event => {
     event.preventDefault();
     console.log(event.target.value);
+  };
+
+  changeHandler = event => {
+    const { value } = event.target;
+    console.log(value);
+    this.setState({ newComment: { username: "weegembump", body: value } });
+  };
+
+  addNewComment = event => {
+    event.preventDefault();
+    console.log(this.state.newComment);
+    return api.postComment(this.state.newComment).then(results => {
+      console.log(results);
+    });
   };
 }
 

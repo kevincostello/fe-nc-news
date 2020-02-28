@@ -32,9 +32,21 @@ export const clicker = event => {
 
 export const postComment = query => {
   const { username, body } = query;
+  const params = { params: { username, body } };
+  console.log(
+    "query",
+    query,
+    "body",
+    body,
+    "username",
+    username,
+    "params",
+    params
+  );
   return axios
     .post("https://heroku-my-data.herokuapp.com/api/articles/33/comments", {
-      params: { username, body }
+      username,
+      body
     })
     .then(response => {
       console.log("the posted comment is: ", response.data.comment);

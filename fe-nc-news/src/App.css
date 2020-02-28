@@ -47,6 +47,11 @@
   border-style: ridge;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
 .flex-item {
   background: rgb(44, 168, 168);
   padding: 5px;
